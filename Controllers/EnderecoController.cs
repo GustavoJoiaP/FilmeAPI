@@ -1,4 +1,6 @@
-﻿using FilmesAPI.Data;
+﻿using AutoMapper;
+using FilmesAPI.Data;
+using FilmesAPI.Data.DataTransferObjects.EnderecoDTO;
 using FilmesAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,16 +15,18 @@ namespace FilmesAPI.Controllers
     public class EnderecoController : ControllerBase
     {
         private AppDbContext _context;
+        private IMapper _mapper;
 
-        public EnderecoController(AppDbContext context)
+        public EnderecoController(AppDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpPost]
-        public IActionResult AdicionarEndereco([FromBody] Endereco endereco)
+        public IActionResult AdicionarEndereco([FromBody] CreateEnderecoDTO enderecoDTO)
         {
-            
+            Endereco endereco = _mapper.Map<Endereco>(enderecoDTO);
             _context.Enderecos.Add(endereco);
             _context.SaveChanges();
             return CreatedAtAction(nameof(BuscarEnderecoPorID), new { Id = endereco.Id }, endereco);
@@ -41,6 +45,7 @@ namespace FilmesAPI.Controllers
             Endereco endereco = _context.Enderecos.FirstOrDefault(endereco => endereco.Id == id);
             if(endereco != null)
             {
+                ReadEnderecoDTO enderecoDTO = _mapper.Map<ReadEnderecoDTO>(endereco);
                 return Ok(endereco);
             }
             return NotFound();
@@ -48,7 +53,7 @@ namespace FilmesAPI.Controllers
 
         [HttpPut("{id}")]
 
-        public IActionResult AtualizarEndereco(int id, [FromBody]Endereco enderecoNovo)
+        public IActionResult AtualizarEndereco(int id, [FromBody]UpdateEnderecoDTO enderecoDTO)
         {
             Endereco endereco = _context.Enderecos.FirstOrDefault(endereco => endereco.Id == id);
 
@@ -56,9 +61,7 @@ namespace FilmesAPI.Controllers
             {
                 return NotFound();
             }
-            endereco.Bairro = enderecoNovo.Bairro;
-            endereco.Rua = enderecoNovo.Rua;
-            endereco.Numero = enderecoNovo.Numero;
+            _mapper.Map(enderecoDTO, endereco);
             _context.SaveChanges();
             return NoContent();
            
