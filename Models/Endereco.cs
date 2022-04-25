@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace FilmesAPI.Models
@@ -18,5 +19,7 @@ namespace FilmesAPI.Models
         public string Bairro { get; set; }
         [Range(1, 9999, ErrorMessage = "A numeração do endereço tem que ter no minimo 1 e no max 9999 minutos")]
         public int Numero { get; set; }
+        [JsonIgnore]
+        public virtual Cinema Cinema { get; set; }
     }
 }
