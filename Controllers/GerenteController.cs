@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace FilmesAPI.Controllers
 {
     [ApiController]
-    [Route("controller")]
+    [Route("[controller]")]
     public class GerenteController : ControllerBase
     {
         public AppDbContext _context;
