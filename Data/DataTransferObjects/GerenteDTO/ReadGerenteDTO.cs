@@ -15,6 +15,6 @@ namespace FilmesAPI.Data.DataTransferObjects.GerenteDTO
         public int Id { get; set; }
         [Required(ErrorMessage ="O campo Nome é obrigatorio")]
         public string Nome { get; set; }
-        public List<Cinema> Cinemas { get; set; }
+        public object Cinemas { get; set; }
     }
 }
