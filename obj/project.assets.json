@@ -6841,19 +6841,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\g_paz\\.nuget\\packages\\": {}
+    "C:\\Users\\Gustavo Joia Paziani\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\g_paz\\source\\repos\\FilmesApi\\FilmesAPI.csproj",
+      "projectUniqueName": "D:\\GitHub\\FilmeAPI\\FilmesAPI.csproj",
       "projectName": "FilmesAPI",
-      "projectPath": "C:\\Users\\g_paz\\source\\repos\\FilmesApi\\FilmesAPI.csproj",
-      "packagesPath": "C:\\Users\\g_paz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\g_paz\\source\\repos\\FilmesApi\\obj\\",
+      "projectPath": "D:\\GitHub\\FilmeAPI\\FilmesAPI.csproj",
+      "packagesPath": "C:\\Users\\Gustavo Joia Paziani\\.nuget\\packages\\",
+      "outputPath": "D:\\GitHub\\FilmeAPI\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\g_paz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Gustavo Joia Paziani\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6924,7 +6929,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -7,5 +7,9 @@ namespace FilmesAPI.Data.DataTransferObjects.SessaoDTO
 {
     public class CreateSessaoDTO
     {
+        public int CinemaId { get; set; }
+        public int FilmeId { get; set; }
+        public DateTime TempoDuracao { get; set; }
+
     }
 }
