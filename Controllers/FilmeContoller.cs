@@ -38,7 +38,7 @@ namespace FilmesAPI.Controllers
             {
                 return Ok(readDTO);
             }
-            return Ok(readDTO);
+            return NotFound();
         }
 
         [HttpGet("{id}")]

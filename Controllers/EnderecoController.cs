@@ -59,7 +59,7 @@ namespace FilmesAPI.Controllers
         {
             Result resultadoAtualizarEndereco = _enderecoService.AtualizarEndereco(id, enderecoDTO);
 
-            if (resultadoAtualizarEndereco == null)
+            if (resultadoAtualizarEndereco.IsFailed)
             {
                 return NotFound();
             }
@@ -72,8 +72,9 @@ namespace FilmesAPI.Controllers
         public IActionResult DeletarFilme(int id)
         {
             Result resultadoDeletarEndereco = _enderecoService.DeletarEndereco(id);
-            if (resultadoDeletarEndereco == null)
+            if (resultadoDeletarEndereco.IsFailed)
             {
+
                 return NotFound();
             }
             return NoContent();
