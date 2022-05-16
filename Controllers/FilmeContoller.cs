@@ -26,7 +26,6 @@ namespace FilmesAPI.Controllers
 
 
         [HttpPost]
-
         public IActionResult AdicionarFilme([FromBody] CreateFilmeDTO filmeDTO)
         {
             Filme filme = _mapper.Map<Filme>(filmeDTO);
@@ -36,9 +35,24 @@ namespace FilmesAPI.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Filme> BuscarFilme()
+        public IActionResult BuscarFilme([FromQuery] int? classificacaoEtaria = null)
         {
-            return _context.Filmes;
+            List<Filme> filmes;
+            if(classificacaoEtaria == null)
+            {
+                filmes = _context.Filmes.ToList();
+            }
+            else
+            {
+                filmes = _context.Filmes.Where(filmes => filmes.ClassificacaoEtaria <= classificacaoEtaria).ToList();
+            }
+
+            if (filmes != null)
+            {
+                List<ReadFilmeDTO> readDTO = _mapper.Map<List<ReadFilmeDTO>>(filmes);
+                return Ok(readDTO);
+            }
+            return NotFound();
         }
 
         [HttpGet("{id}")]
